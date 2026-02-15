@@ -1073,6 +1073,11 @@ const HTML_PAGE = `
                                 <option value="zh-CN-YunxiaNeural">云夏 (男声·热情)</option>
                                 <option value="zh-CN-YunyeNeural">云野 (男声·野性)</option>
                                 <option value="zh-CN-YunzeNeural">云泽 (男声·深沉)</option>
+                                <optgroup label="廣東話 (香港)">
+                                    <option value="zh-HK-HiuMaanNeural">曉曼 (HiuMaan) - 溫柔女聲</option>
+                                    <option value="zh-HK-WanLungNeural">雲龍 (WanLung) - 莊重男聲</option>
+                                    <option value="zh-HK-HiuGaaiNeural">曉佳 (HiuGaai) - 親切女聲</option>
+                                </optgroup>
                             </select>
                         </div>
                         
