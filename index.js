@@ -1578,31 +1578,33 @@ body {
                         <div class="form-group">
                             <label class="form-label" for="voice">語音選擇</label>
                             <select class="form-select" id="voice">
-                                <option value="zh-CN-XiaoxiaoNeural">曉曉 (女聲·溫柔)</option>
-                                <option value="zh-CN-YunxiNeural">雲希 (男聲·清朗)</option>
-                                <option value="zh-CN-YunyangNeural">雲揚 (男聲·陽光)</option>
-                                <option value="zh-CN-XiaoyiNeural">曉伊 (女聲·甜美)</option>
-                                <option value="zh-CN-YunjianNeural">雲健 (男聲·穩重)</option>
-                                <option value="zh-CN-XiaochenNeural">曉辰 (女聲·知性)</option>
-                                <option value="zh-CN-XiaohanNeural">曉涵 (女聲·優雅)</option>
-                                <option value="zh-CN-XiaomengNeural">曉夢 (女聲·夢幻)</option>
-                                <option value="zh-CN-XiaomoNeural">曉墨 (女聲·文藝)</option>
-                                <option value="zh-CN-XiaoqiuNeural">曉秋 (女聲·成熟)</option>
-                                <option value="zh-CN-XiaoruiNeural">曉睿 (女聲·智慧)</option>
-                                <option value="zh-CN-XiaoshuangNeural">曉雙 (女聲·活潑)</option>
-                                <option value="zh-CN-XiaoxuanNeural">曉萱 (女聲·清新)</option>
-                                <option value="zh-CN-XiaoyanNeural">曉顏 (女聲·柔美)</option>
-                                <option value="zh-CN-XiaoyouNeural">曉悠 (女聲·悠揚)</option>
-                                <option value="zh-CN-XiaozhenNeural">曉甄 (女聲·端莊)</option>
-                                <option value="zh-CN-YunfengNeural">雲楓 (男聲·磁性)</option>
-                                <option value="zh-CN-YunhaoNeural">雲皓 (男聲·豪邁)</option>
-                                <option value="zh-CN-YunxiaNeural">雲夏 (男聲·熱情)</option>
-                                <option value="zh-CN-YunyeNeural">雲野 (男聲·野性)</option>
-                                <option value="zh-CN-YunzeNeural">雲澤 (男聲·深沈)</option>
                                 <optgroup label="廣東話 (香港)">
                                     <option value="zh-HK-HiuMaanNeural">曉曼 (HiuMaan) - 溫柔女聲</option>
                                     <option value="zh-HK-WanLungNeural">雲龍 (WanLung) - 莊重男聲</option>
                                     <option value="zh-HK-HiuGaaiNeural">曉佳 (HiuGaai) - 親切女聲</option>
+                                </optgroup>
+                                <optgroup label="普通話">
+                                    <option value="zh-CN-XiaoxiaoNeural">曉曉 (女聲·溫柔)</option>
+                                    <option value="zh-CN-YunxiNeural">雲希 (男聲·清朗)</option>
+                                    <option value="zh-CN-YunyangNeural">雲揚 (男聲·陽光)</option>
+                                    <option value="zh-CN-XiaoyiNeural">曉伊 (女聲·甜美)</option>
+                                    <option value="zh-CN-YunjianNeural">雲健 (男聲·穩重)</option>
+                                    <option value="zh-CN-XiaochenNeural">曉辰 (女聲·知性)</option>
+                                    <option value="zh-CN-XiaohanNeural">曉涵 (女聲·優雅)</option>
+                                    <option value="zh-CN-XiaomengNeural">曉夢 (女聲·夢幻)</option>
+                                    <option value="zh-CN-XiaomoNeural">曉墨 (女聲·文藝)</option>
+                                    <option value="zh-CN-XiaoqiuNeural">曉秋 (女聲·成熟)</option>
+                                    <option value="zh-CN-XiaoruiNeural">曉睿 (女聲·智慧)</option>
+                                    <option value="zh-CN-XiaoshuangNeural">曉雙 (女聲·活潑)</option>
+                                    <option value="zh-CN-XiaoxuanNeural">曉萱 (女聲·清新)</option>
+                                    <option value="zh-CN-XiaoyanNeural">曉顏 (女聲·柔美)</option>
+                                    <option value="zh-CN-XiaoyouNeural">曉悠 (女聲·悠揚)</option>
+                                    <option value="zh-CN-XiaozhenNeural">曉甄 (女聲·端莊)</option>
+                                    <option value="zh-CN-YunfengNeural">雲楓 (男聲·磁性)</option>
+                                    <option value="zh-CN-YunhaoNeural">雲皓 (男聲·豪邁)</option>
+                                    <option value="zh-CN-YunxiaNeural">雲夏 (男聲·熱情)</option>
+                                    <option value="zh-CN-YunyeNeural">雲野 (男聲·野性)</option>
+                                    <option value="zh-CN-YunzeNeural">雲澤 (男聲·深沈)</option>
                                 </optgroup>
                             </select>
                         </div>
