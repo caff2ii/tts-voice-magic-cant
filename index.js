@@ -890,10 +890,37 @@ const HTML_PAGE = `
             .result-actions .btn-secondary {
                 min-width: auto;
             }
+            /* 加入黑暗模式自動切換 */
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --background-color: #0f172a; /* 深藍底 */
+                    --surface-color: #1e293b;    /* 卡片深色 */
+                    --text-primary: #f8fafc;    /* 白色文字 */
+                    --text-secondary: #94a3b8;  /* 灰色文字 */
+                    --border-color: #334155;    /* 深色邊框 */
+                }
+                
+                /* 針對輸入框在黑夜模式的優化 */
+                input, select, textarea {
+                    background-color: #0f172a !important;
+                    color: #f8fafc !important;
+                    border-color: #334155 !important;
+                }
+    
+                .form-control:focus {
+                    background-color: #0f172a;
+                }
+                
+                /* 讓卡片陰影在深色模式下不要太突兀 */
+                .card {
+                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+                }
+            }
         }
     </style>
 </head>
 <body>
+    <button id="theme-toggle" style="position:fixed; top:10px; right:10px; z-index:999;">🌙/☀️</button>
     <!-- 语言切换器 -->
     <div class="language-switcher">
         <div class="language-btn" id="languageBtn">
@@ -904,6 +931,10 @@ const HTML_PAGE = `
             </svg>
         </div>
         <div class="language-dropdown" id="languageDropdown">
+            <div class="language-option" data-lang="en">
+                <span>🇭🇰</span>
+                <span data-i18n="lang.zh-HK">繁體中文</span>
+            </div>
             <div class="language-option" data-lang="en">
                 <span>🇺🇸</span>
                 <span data-i18n="lang.en">English</span>
@@ -1270,6 +1301,12 @@ const HTML_PAGE = `
         let transcriptionToken = null;
         let currentLanguage = 'en'; // 默认语言
 
+        const toggleBtn = document.getElementById('theme-toggle');
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            // 同時切換一個 class 來覆蓋顏色
+        });
+
         // 国际化翻译数据
         const translations = {
             en: {
@@ -1277,6 +1314,7 @@ const HTML_PAGE = `
                 'page.description': 'VoiceCraft is an AI-powered platform that converts text to speech and speech to text with 20+ voice options, lightning fast processing, completely free to use.',
                 'page.keywords': 'text to speech,AI voice synthesis,online TTS,voice generator,free voice tools,speech to text,voice transcription',
                 'lang.current': 'English',
+                'lang.zh-HK': '繁體中文',
                 'lang.en': 'English',
                 'lang.zh': '中文',
                 'lang.ja': '日本語',
@@ -1300,6 +1338,7 @@ const HTML_PAGE = `
                 'page.keywords': '文字转语音,AI语音合成,在线TTS,语音生成器,免费语音工具,语音转文字,语音转录',
                 'lang.current': '中文',
                 'lang.en': 'English',
+                'lang.zh-HK': '繁體中文',
                 'lang.zh': '中文',
                 'lang.ja': '日本語',
                 'lang.ko': '한국어',
@@ -1316,12 +1355,36 @@ const HTML_PAGE = `
                 'mode.tts': '文字转语音',
                 'mode.transcription': '语音转文字'
             },
+            zh-HK: {
+                'page.title': 'VoiceCraft - AI驅動的語音處理平台',
+                'page.description': 'VoiceCraft是一個AI驅動的平台，支持文字轉語音和語音轉文字，擁有20+種語音選項，閃電般的處理速度，完全免費使用。',
+                'page.keywords': '文字轉語音,AI語音合成,在線TTS,語音生成器,免費語音工具,語音轉文字,語音轉錄',
+                'lang.current': '繁體中文',
+                'lang.en': 'English',
+                'lang.zh-HK': '繁體中文',
+                'lang.zh': '中文',
+                'lang.ja': '日本語',
+                'lang.ko': '한국어',
+                'lang.es': 'Español',
+                'lang.fr': 'Français',
+                'lang.de': 'Deutsch',
+                'lang.ru': 'Русский',
+                'header.title': 'VoiceCraft',
+                'header.subtitle': 'AI驅動的語音處理平台',
+                'header.feature1': '20+種語音選項',
+                'header.feature2': '閃電般快速',
+                'header.feature3': '完全免費',
+                'header.feature4': '支持下載',
+                'mode.tts': '文字轉語音',
+                'mode.transcription': '語音轉文字'
+            },
             ja: {
                 'page.title': 'VoiceCraft - AI音声処理プラットフォーム',
                 'page.description': 'VoiceCraftはAI駆動のプラットフォームで、テキスト読み上げと音声テキスト変換に対応。20以上の音声オプション、高速処理、完全無料でご利用いただけます。',
                 'page.keywords': 'テキスト読み上げ,AI音声合成,オンラインTTS,音声ジェネレーター,無料音声ツール,音声テキスト変換,音声転写',
                 'lang.current': '日本語',
                 'lang.en': 'English',
+                'lang.zh-HK': '繁體中文',
                 'lang.zh': '中文',
                 'lang.ja': '日本語',
                 'lang.ko': '한국어',
@@ -1344,6 +1407,7 @@ const HTML_PAGE = `
                 'page.keywords': '텍스트 음성 변환,AI 음성 합성,온라인 TTS,음성 생성기,무료 음성 도구,음성 텍스트 변환,음성 전사',
                 'lang.current': '한국어',
                 'lang.en': 'English',
+                'lang.zh-HK': '繁體中文',
                 'lang.zh': '中文',
                 'lang.ja': '日本語',
                 'lang.ko': '한국어',
@@ -1366,6 +1430,7 @@ const HTML_PAGE = `
                 'page.keywords': 'texto a voz,síntesis de voz IA,TTS en línea,generador de voz,herramientas de voz gratis,voz a texto,transcripción de voz',
                 'lang.current': 'Español',
                 'lang.en': 'English',
+                'lang.zh-HK': '繁體中文',
                 'lang.zh': '中文',
                 'lang.ja': '日本語',
                 'lang.ko': '한국어',
@@ -1388,6 +1453,7 @@ const HTML_PAGE = `
                 'page.keywords': 'texte vers parole,synthèse vocale IA,TTS en ligne,générateur vocal,outils vocaux gratuits,parole vers texte,transcription vocale',
                 'lang.current': 'Français',
                 'lang.en': 'English',
+                'lang.zh-HK': '繁體中文',
                 'lang.zh': '中文',
                 'lang.ja': '日本語',
                 'lang.ko': '한국어',
@@ -1410,6 +1476,7 @@ const HTML_PAGE = `
                 'page.keywords': 'Text zu Sprache,KI-Sprachsynthese,Online-TTS,Sprachgenerator,kostenlose Sprachtools,Sprache zu Text,Sprachtranskription',
                 'lang.current': 'Deutsch',
                 'lang.en': 'English',
+                'lang.zh-HK': '繁體中文',
                 'lang.zh': '中文',
                 'lang.ja': '日本語',
                 'lang.ko': '한국어',
@@ -1432,6 +1499,7 @@ const HTML_PAGE = `
                 'page.keywords': 'текст в речь,ИИ синтез речи,онлайн TTS,генератор голоса,бесплатные голосовые инструменты,речь в текст,транскрипция речи',
                 'lang.current': 'Русский',
                 'lang.en': 'English',
+                'lang.zh-HK': '繁體中文',
                 'lang.zh': '中文',
                 'lang.ja': '日本語',
                 'lang.ko': '한국어',
@@ -1506,6 +1574,7 @@ const HTML_PAGE = `
 
         function updateLanguageSwitcher() {
             const langFlags = {
+                'zh-HK': '🇭🇰',
                 'en': '🇺🇸',
                 'zh': '🇨🇳',
                 'ja': '🇯🇵',
